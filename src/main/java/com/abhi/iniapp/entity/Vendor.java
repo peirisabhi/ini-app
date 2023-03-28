@@ -1,5 +1,6 @@
 package com.abhi.iniapp.entity;
 
+import com.abhi.iniapp.util.Transformer;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,20 +19,21 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @ToString
-public class Vendor {
+public class Vendor implements Transformer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name;
+    @Column(name = "vendor_name")
+    private String vendorName;
 
     private String address;
 
     private String contact;
 
-    private String email;
-
+    @Column(name = "user_id")
+    private int userId;
 
 
 }
