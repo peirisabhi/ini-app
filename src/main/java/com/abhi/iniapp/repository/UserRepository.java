@@ -10,4 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 23:38
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
+
+    User findByIdAndStatus(int id, int status);
+
 }

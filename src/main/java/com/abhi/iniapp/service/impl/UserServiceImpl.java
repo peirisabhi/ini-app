@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Intellij.
@@ -42,21 +43,37 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto updateUser(UserDto userDto) {
-        return null;
+
+        User user = userRepository.findById(userDto.getId())
+                .get();
+        user.setUserRoleId(userDto.getUserRoleId());
+        user.setFname(userDto.getFname());
+        user.setLname(userDto.getLname());
+        user.setEmail(userDto.getEmail());
+
+        return userRepository.save(user).toDto(UserDto.class);
     }
 
     @Override
     public UserDto removeUser(int id) {
-        return null;
+        User user = userRepository.findById(id)
+                .get();
+        user.setStatus(0);
+
+        return userRepository.save(user).toDto(UserDto.class);
     }
 
     @Override
     public UserDto getUser(int id) {
-        return null;
+        return userRepository.findByIdAndStatus(id, 1).toDto(UserDto.class);
     }
 
     @Override
     public List<UserDto> getUsers() {
-        return null;
+       return userRepository.findAll()
+                .stream()
+                .filter(user -> user.getStatus() == 1)
+                .map(user -> user.toDto(UserDto.class))
+                .collect(Collectors.toList());
     }
 }
