@@ -12,7 +12,7 @@ import java.util.Date;
  * Time: 12:29
  */
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -28,7 +28,7 @@ public class Order {
     @Column(name = "product_id")
     private int productId;
 
-    @Column(name = "order_type_id")
+//    @Column(name = "order_type_id")
     private int orderTypeId;
 
     @Column(name = "user_id")
