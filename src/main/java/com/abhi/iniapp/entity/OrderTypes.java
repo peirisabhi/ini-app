@@ -1,5 +1,6 @@
 package com.abhi.iniapp.entity;
 
+import com.abhi.iniapp.util.Transformer;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @ToString
-public class OrderTypes {
+public class OrderTypes implements Transformer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
