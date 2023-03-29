@@ -1,5 +1,6 @@
 package com.abhi.iniapp.entity;
 
+import com.abhi.iniapp.util.Transformer;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,7 +20,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @ToString
-public class Order {
+public class Order implements Transformer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +39,7 @@ public class Order {
 
     private double price;
 
-    @Column(name = "registered_at", nullable = false)
+    @Column(name = "order_date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date registeredAt;
+    private Date orderDate;
 }

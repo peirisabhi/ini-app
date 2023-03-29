@@ -32,6 +32,11 @@ public class OrderInstallments {
 
     private String status;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+    @Column(name = "due_date")
+    @Temporal(TemporalType.DATE)
+    private Date dueDate;
+
+    @Column(name = "paied_date")
+    @Temporal(TemporalType.DATE)
+    private Date paiedDate;
 }
