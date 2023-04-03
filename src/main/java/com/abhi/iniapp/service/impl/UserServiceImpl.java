@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
         User user = userDto.toEntity(User.class);
         user.setStatus(1);
         user.setRegisteredAt(new Date());
+        user.setUserRoleId(1);
 
         return userRepository.save(user)
                 .toDto(UserDto.class);
