@@ -1,5 +1,6 @@
 package com.abhi.iniapp.service.impl;
 
+import com.abhi.iniapp.dto.AuthDto;
 import com.abhi.iniapp.dto.UserDto;
 import com.abhi.iniapp.entity.User;
 import com.abhi.iniapp.repository.UserRepository;
@@ -76,5 +77,15 @@ public class UserServiceImpl implements UserService {
                 .filter(user -> user.getStatus() == 1)
                 .map(user -> user.toDto(UserDto.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public UserDto authenticate(AuthDto authDto) {
+        User existingUser = userRepository.findByEmail(authDto.getEmail());
+        if (existingUser != null && existingUser.getPassword().equals(authDto.getPassword())) {
+            return existingUser.toDto(UserDto.class);
+        } else {
+            return  null;
+        }
     }
 }

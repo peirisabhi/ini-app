@@ -1,5 +1,6 @@
 package com.abhi.iniapp.service;
 
+import com.abhi.iniapp.dto.AuthDto;
 import com.abhi.iniapp.dto.UserDto;
 import com.abhi.iniapp.entity.User;
 
@@ -23,6 +24,6 @@ public interface UserService {
 
     List<UserDto> getUsers();
 
-
+    UserDto authenticate(AuthDto authDto);
 
 }
