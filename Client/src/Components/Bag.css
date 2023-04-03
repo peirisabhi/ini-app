@@ -1,0 +1,47 @@
+.bag.summary {
+    display: flex;
+    flex-direction: column;
+    min-height: 60em;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+}
+
+.checkout.summary {
+    border: 5px solid rgb(62, 48, 49);
+    padding: 5em;
+}
+
+.checkout.row {
+    display: flex;
+    padding: 0.5em;
+    width: 300px;
+    justify-content: space-between;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.checkout.row.total {
+    font-weight: bolder;
+}
+
+.checkout.btn {
+    background-color: black;
+    color: white;
+    width: 300px;
+    padding: 1em;
+    font-family: "quicksand";
+    font-size: 12px;
+}
+
+.shop.btn {
+    background-color: black;
+    color: white;
+    width: 150px;
+    padding: 1em;
+    font-family: "quicksand";
+    font-size: 12px;
+}
+
+

@@ -1,0 +1,44 @@
+.footer__container {
+    background: #EEE9DA;
+    height: 7rem;
+    flex-direction: row;
+    width: auto;
+}
+
+.footeritems {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footeritems p {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.footeritems p:hover {
+    color: #6096B4;
+}
+
+.footer__socialmedia {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer__copyright {
+    height: 40px;
+    background: #594545;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__copyright p {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}

@@ -1,0 +1,56 @@
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 14px;
+    padding: 0.5em;
+    background-color: #FFF8EA;
+    ;
+    border-bottom: 1px solid #39252c;
+ 
+    
+
+}
+
+.ShopBtn{
+    margin-right: 2em;
+}
+
+.header-right,
+.header-left {
+    display: flex;
+    justify-content: center;
+    width: 4em;
+    gap: 0.2em;
+}
+
+.header-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.login_text {
+    cursor: pointer;
+    margin-left: 20px;
+    color: #000000;
+    
+}
+
+.Signup_text {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #000000;
+    
+}
+
+.login_text:hover {
+    color: #40141c;
+}
+
+.Signup_text:hover {
+    color:#40141c;
+    ;
+}
+

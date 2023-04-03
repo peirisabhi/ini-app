@@ -1,0 +1,287 @@
+body {
+  font-family: "Quicksand";
+  margin: 0;
+  padding: 0;
+  background-color: #9E7676;
+}
+
+.logo {
+  height: 3em;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -48px;
+  gap: 5em;
+  padding: 3em 5em;
+}
+
+.content-text {
+  font-size: 13px;
+  text-align: center;
+  width: 40vw;
+}
+
+h2 {
+  font-size: 16px;
+  letter-spacing: 1.5px;
+}
+
+.content-image {
+  width: 400px;
+}
+
+.footer, .footer-top-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  border-top: 1px solid #594545;
+}
+
+.footer-top, .footer-top-left {
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-top-left {
+  width: 50vw;
+  font-size: 13px;
+  gap: 60px;
+  justify-content: center;
+  padding: 20px 30px;
+}
+
+.footer-top-right {
+  padding: 20px 30px;
+}
+
+
+
+li {
+  list-style: none;
+  line-height: 3em;
+}
+
+.email {
+  padding: 1em;
+  font-family: "quicksand";
+  width: 15em;
+  margin-top: 1em;
+}
+
+.comingsoon {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.prod.img {
+  width: 250px;
+}
+
+.prod {
+  font-size: 14px;
+}
+
+.prod.material {
+  font-size: 12px;
+}
+
+.prod.name {
+  text-transform: uppercase;
+}
+
+.prod.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+}
+
+.prod.title {
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+}
+
+.product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.navbar {
+  width: 100vw;
+  display: flex;
+  border-bottom: 1px solid #815B5B;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  justify-content: center;
+  gap: 5em;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+.addToBag {
+  width: 250px;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 0.8em 0em;
+  margin-top: 0.5em;
+  font-family: "Quicksand";
+}
+
+.addToBag:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 670px) {
+  .content-image {
+    width: 200px;
+  }
+
+  .right-arrow {
+    display: none;
+  }
+  
+  .left-arrow {
+    display: none;
+  }  
+
+  .slide-button {
+    display: none;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -35px;
+    gap: 1em;
+    padding: 3em;
+  }
+  
+  .content-text {
+    font-size: 15px;
+    text-align: center;
+    width: 75vw;
+  }
+
+  h2 {
+    font-size: 17px;
+    letter-spacing: 1.5px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer {
+    border-top: 1px solid rgb(218,218,218);
+  }
+  
+  .footer-top, .footer-top-left {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .footer-top-left {
+    width: 100vw;
+    font-size: 12px;
+    gap: 60px;
+    justify-content: center;
+    padding: 20px 30px;
+  }
+  
+  .footer-top-right {
+    display: none;
+  }
+  
+  .product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .navbar {
+    width: 100vw;
+    display: flex;
+    border-bottom: 1px solid rgb(218,218,218);
+    font-size: 11px;
+    letter-spacing: 1px;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .prod.img {
+    width: 150px;
+  }
+  
+  .prod.name {
+    text-transform: uppercase;
+  }
+  
+  .prod.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5em;
+    padding: 1.5em;
+  }
+  
+  .prod.title {
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+  }
+  
+  .addToBag {
+    width: 150px;
+  }
+
+  .bag.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .bag.row {
+    width: 300px;
+  }
+
+  .checkout.row {
+    width: 250px;
+  }
+}

@@ -1,0 +1,73 @@
+.bag.row {
+    display: flex;
+    width: 500px;
+    gap: 1em;
+    padding: 1em;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+
+.bag.row:last-child {
+    border: none;
+}
+
+.bag.img {
+    max-width: 350px;
+}
+
+.bag.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+    
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.prod {
+    font-size: 28px;
+}
+
+.close {
+    padding: none;
+    margin: none;
+    border: none;
+    background-color: transparent;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.prod.material {
+    font-size: 20px;
+}
+
+.edit {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.edit-qty {
+    display: flex;
+    width: 70px;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: none;
+    margin: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.qty {
+    font-size: 20px;
+}
+
