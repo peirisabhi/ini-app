@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import RegisterVendor from './Components/RegisterVendor';
+import MyOrders from './Components/MyOrders';
 
 const RouteSwitch = () => {
   const [bag, setBag] = useState([]);
@@ -107,6 +108,10 @@ const RouteSwitch = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/register-vendor' element={<RegisterVendor />} />
+        <Route
+          path='/my-orders'
+          element={<MyOrders bag={bag} bagCount={bagCount} />}
+        />
       </Routes>
     </BrowserRouter>
   );

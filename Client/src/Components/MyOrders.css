@@ -1,0 +1,8 @@
+.orders-wrapper {
+  display: flex;
+  min-height: 80vh;
+}
+
+.orders-wrapper > .card {
+  margin: 30px;
+}

@@ -1,6 +1,7 @@
 package com.abhi.iniapp.service;
 
 import com.abhi.iniapp.dto.OrderDto;
+import java.util.List;
 
 /**
  * Created by Intellij.
@@ -14,5 +15,7 @@ public interface OrderService {
 
     OrderDto getOrder(int id);
 
+    List<OrderDto> getOrdersByUserId(int id);
 
+    List<OrderDto> getOrdersByVendorId(int id);
 }

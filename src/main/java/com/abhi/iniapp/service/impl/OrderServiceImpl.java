@@ -1,13 +1,8 @@
 package com.abhi.iniapp.service.impl;
 
 import com.abhi.iniapp.dto.OrderDto;
-import com.abhi.iniapp.entity.Order;
-import com.abhi.iniapp.entity.OrderInstallments;
-import com.abhi.iniapp.entity.Product;
-import com.abhi.iniapp.repository.OrderInstallmentsRepository;
-import com.abhi.iniapp.repository.OrderRepository;
-import com.abhi.iniapp.repository.ProductRepository;
-import com.abhi.iniapp.repository.UserRepository;
+import com.abhi.iniapp.entity.*;
+import com.abhi.iniapp.repository.*;
 import com.abhi.iniapp.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +11,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Intellij.
@@ -38,12 +35,16 @@ public class OrderServiceImpl implements OrderService {
     final
     OrderInstallmentsRepository orderInstallmentsRepository;
 
+    final
+    VendorRepository vendorRepository;
+
     @Autowired
-    public OrderServiceImpl(OrderRepository orderRepository, UserRepository userRepository, ProductRepository productRepository, OrderInstallmentsRepository orderInstallmentsRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, UserRepository userRepository, ProductRepository productRepository, OrderInstallmentsRepository orderInstallmentsRepository, VendorRepository vendorRepository) {
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
         this.productRepository = productRepository;
         this.orderInstallmentsRepository = orderInstallmentsRepository;
+        this.vendorRepository = vendorRepository;
     }
 
 
@@ -125,5 +126,49 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDto getOrder(int id) {
         return orderRepository.findById(id).get().toDto(OrderDto.class);
+    }
+
+    @Override
+    public List<OrderDto> getOrdersByUserId (int id) {
+        return orderRepository.findAll()
+                .stream()
+                .filter(order -> order.getUserId() == id)
+                .map(order -> order.toDto(OrderDto.class))
+                .map(orderDto -> {
+                    List<OrderInstallments> orderInstallments = orderInstallmentsRepository.findAll()
+                            .stream()
+                            .filter(oi -> oi.getOrderId() == orderDto.getId())
+                            .collect(Collectors.toList());
+                    orderDto.setOrderInstalmentsList(orderInstallments);
+                    Product product = productRepository.findById(orderDto.getProductId()).get();
+                    orderDto.setProductDesc(product.getDescription());
+                    orderDto.setProductTitle(product.getTitle());
+                    return orderDto;
+                })
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<OrderDto> getOrdersByVendorId (int userId) {
+        Vendor vendor = vendorRepository.findByUserId(userId);
+        return orderRepository.findAll()
+                .stream()
+                .filter(order -> {
+                    Product product = productRepository.findById(order.getProductId()).get();
+                    return product.getVendorId() == vendor.getId();
+                })
+                .map(order -> order.toDto(OrderDto.class))
+                .map(orderDto -> {
+                    List<OrderInstallments> orderInstallments = orderInstallmentsRepository.findAll()
+                            .stream()
+                            .filter(oi -> oi.getOrderId() == orderDto.getId())
+                            .collect(Collectors.toList());
+                    orderDto.setOrderInstalmentsList(orderInstallments);
+                    Product product = productRepository.findById(orderDto.getProductId()).get();
+                    orderDto.setProductDesc(product.getDescription());
+                    orderDto.setProductTitle(product.getTitle());
+                    return orderDto;
+                })
+                .collect(Collectors.toList());
     }
 }

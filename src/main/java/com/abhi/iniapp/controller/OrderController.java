@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Intellij.
  * Author: Abhishek Peiris
@@ -32,5 +34,15 @@ public class OrderController {
     @GetMapping("{id}")
     public ResponseEntity<OrderDto> getProduct(@PathVariable(value = "id") int id){
         return ResponseEntity.status(HttpStatus.OK).body(orderService.getOrder(id));
+    }
+
+    @GetMapping("/getOrdersByUserId/{id}")
+    public ResponseEntity<List<OrderDto>> getOrdersByUserId(@PathVariable(value = "id") int id){
+        return ResponseEntity.status(HttpStatus.OK).body(orderService.getOrdersByUserId(id));
+    }
+
+    @GetMapping("/getOrdersByVendorId/{id}")
+    public ResponseEntity<List<OrderDto>> getOrdersByVendorId(@PathVariable(value = "id") int id){
+        return ResponseEntity.status(HttpStatus.OK).body(orderService.getOrdersByVendorId(id));
     }
 }

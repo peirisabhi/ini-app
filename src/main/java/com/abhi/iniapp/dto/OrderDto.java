@@ -1,5 +1,6 @@
 package com.abhi.iniapp.dto;
 
+import com.abhi.iniapp.entity.OrderInstallments;
 import com.abhi.iniapp.util.Transformer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Intellij.
@@ -27,6 +29,12 @@ public class OrderDto implements Transformer {
     @JsonProperty("product_id")
     private int productId;
 
+    @JsonProperty("product_desc")
+    private String productDesc;
+
+    @JsonProperty("product_title")
+    private String productTitle;
+
     @JsonProperty("order_type_id")
     private int orderTypeId;
 
@@ -37,4 +45,7 @@ public class OrderDto implements Transformer {
 
     @JsonProperty("order_date")
      private Date orderDate;
+
+    @JsonProperty("order_details_list")
+    private List<OrderInstallments> orderInstalmentsList;
 }

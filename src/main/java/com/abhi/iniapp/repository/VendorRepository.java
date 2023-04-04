@@ -10,4 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 12:51
  */
 public interface VendorRepository extends JpaRepository<Vendor, Integer> {
+    Vendor findByUserId(int userId);
 }
